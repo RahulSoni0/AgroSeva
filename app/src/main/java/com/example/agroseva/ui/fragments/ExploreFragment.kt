@@ -33,6 +33,7 @@ class ExploreFragment : Fragment() {
 
         viewPager.adapter = ExploreFragmentAdapter(requireActivity(), fragments)
 
+
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
                 0 -> tab.text = "Fasal Darpan"
