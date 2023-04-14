@@ -13,10 +13,6 @@
         android:id="@+id/addressForm"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Address" />
-    <item
-        android:id="@+id/detailsForm"
-        android:icon="@drawable/baseline_description_24"
-        android:title="details" />
 
 
 </menu>

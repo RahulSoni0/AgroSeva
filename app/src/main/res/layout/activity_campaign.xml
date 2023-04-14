@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".onboarding.OnboardingActivity">
-
+    tools:context=".ui.activities.CampaignActivity">
 
     <RelativeLayout
         android:id="@+id/handlee"
@@ -29,7 +28,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16sp"
                 android:fontFamily="@font/poppins"
-                android:text="AgroSeva"
+                android:text="Create Campaign "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -54,13 +53,21 @@
 
 
             <include
-                android:id="@+id/Personal_FormLayoutTo"
-                layout="@layout/personal_form_layout"
+                android:id="@+id/campaign_details"
+                layout="@layout/campaign_description"
+                android:visibility="gone" />
+            <include
+                android:id="@+id/campaign_payment"
+                layout="@layout/campaign_payment_details"
+                android:visibility="gone" />
+            <include
+                android:id="@+id/campaign_author"
+                layout="@layout/campaign_author"
                 android:visibility="gone" />
 
             <include
-                android:id="@+id/Address_FormLayoutTo"
-                layout="@layout/address_form_layout"
+                android:id="@+id/campaign_author_address"
+                layout="@layout/campaign_author_address"
                 android:visibility="gone" />
 
 
@@ -83,6 +90,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/onboarding_options" />
+        app:menu="@menu/campaign_options_menu" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

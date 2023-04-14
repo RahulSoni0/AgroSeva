@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.agroseva.R
 import com.example.agroseva.databinding.ActivityAuthBinding
+import com.example.agroseva.ui.activities.MainActivity
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.*
 import com.firebase.ui.auth.IdpResponse
@@ -24,7 +25,7 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (FirebaseAuth.getInstance().currentUser != null) {
-            startActivity(Intent(this, OnboardingActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
         binding.btnEmailSignIn.setOnClickListener { view -> handleEmailLogin(view) }
@@ -72,25 +73,7 @@ class AuthActivity : AppCompatActivity() {
         startActivityForResult(intent, AUTHUI_REQUEST_CODE)
     }
 
-    //    public void handleLoginRegister(View view) {
-    //
-    //        List<AuthUI.IdpConfig> providers = Arrays.asList(
-    //                new AuthUI.IdpConfig.EmailBuilder().build(),
-    //                new AuthUI.IdpConfig.GoogleBuilder().build(),
-    //                new AuthUI.IdpConfig.PhoneBuilder().build()
-    //        );
-    //
-    //        Intent intent = AuthUI.getInstance()
-    //                .createSignInIntentBuilder()
-    //                .setAvailableProviders(providers)
-    //                .setTosAndPrivacyPolicyUrls("https://example.com", "https://example.com")
-    //                .setLogo(R.drawable.panda_meditation)
-    //                .setAlwaysShowSignInMethodScreen(true)
-    //                .setIsSmartLockEnabled(false)
-    //                .build();
-    //
-    //        startActivityForResult(intent, AUTHUI_REQUEST_CODE);
-    //    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == AUTHUI_REQUEST_CODE) {
@@ -102,15 +85,20 @@ class AuthActivity : AppCompatActivity() {
                 //Checking for User (New/Old)
                 if (user!!.metadata!!.creationTimestamp == user.metadata!!.lastSignInTimestamp) {
                     //This is a New User
+                    val intent = Intent(this, OnboardingActivity::class.java)
+                    intent.putExtra("userKey", user.uid);
+                    startActivity(intent)
+                    finish()
                     Toast.makeText(this, "Welcome new user", Toast.LENGTH_SHORT).show()
                 } else {
                     //This is a returning user
                     Toast.makeText(this, "Welcome back ", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("userKey", user.uid);
+                    startActivity(intent)
+                    finish()
                 }
-                val intent = Intent(this, OnboardingActivity::class.java)
-                intent.putExtra("userKey", user.uid);
-                startActivity(intent)
-                finish()
+
             } else {
                 // Signing in failed
                 val response = IdpResponse.fromResultIntent(data)

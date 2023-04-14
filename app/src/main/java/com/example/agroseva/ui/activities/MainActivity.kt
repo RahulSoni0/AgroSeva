@@ -1,5 +1,6 @@
 package com.example.agroseva.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -24,9 +25,6 @@ class MainActivity : AppCompatActivity() {
 
             setOf(
                 R.id.homeFragment,
-//                R.id.marketFragment,
-//                R.id.profileFragment,
-//                R.id.walletFragment
             ),
             binding.drawerLayout
 
@@ -41,6 +39,19 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNav.setupWithNavController(navController)
         binding.sideNav.setupWithNavController(navController)
+        binding.sideNav.setNavigationItemSelectedListener { menuItem ->
+            // Step 6: Handle the click events for each menu item
+            when (menuItem.itemId) {
+                R.id.campaignActivityMenu -> {
+                    // Handle click for menu item 1
+                    val intent = Intent(this, ViewCampaignActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                else -> false
+            }
+        }
 
     }
 
