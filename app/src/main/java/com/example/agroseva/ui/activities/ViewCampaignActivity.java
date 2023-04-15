@@ -58,7 +58,6 @@ public class ViewCampaignActivity extends AppCompatActivity {
                         campaigns.add(singleCamp);
                     }
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(ViewCampaignActivity.this, "" + campaigns.toString(), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                 } else {
                     Log.d("1111", "Error getting documents: ", task.getException());

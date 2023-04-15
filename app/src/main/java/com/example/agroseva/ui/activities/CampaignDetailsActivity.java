@@ -1,7 +1,8 @@
 package com.example.agroseva.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,10 +27,8 @@ public class CampaignDetailsActivity extends AppCompatActivity {
             c = (Campaign) getIntent().getSerializableExtra("data");
         }
 
-        Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
 
         if (c != null) {
-
             binding.campaignTitle.setText(c.getCampaignsList().get(0).getCampaign_title());
             binding.campaignDesc.setText("Description : " + c.getCampaignsList().get(0).getCampaign_description());
             binding.campaignProd.setText("Product Description : " + c.getCampaignsList().get(0).getProduct_description());
@@ -52,7 +51,17 @@ public class CampaignDetailsActivity extends AppCompatActivity {
 
 
         }
+        binding.btnDonate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(CampaignDetailsActivity.this, DonationActivity.class);
+                i.putExtra("data", c);
+                startActivity(i);
+
+            }
+        });
 
 
     }
+
 }

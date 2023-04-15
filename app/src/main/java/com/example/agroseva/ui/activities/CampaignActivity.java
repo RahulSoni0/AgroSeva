@@ -371,7 +371,7 @@ public class CampaignActivity extends AppCompatActivity {
                         cc.setPhone_no(p.getPhone_no());
                         cc.setGender(p.getGender());
 
-
+                        campitem.setDoc_id(auth.getUid());
                         campitem.setContact(cc);
 
                         PaymentOptions payment = new PaymentOptions();
@@ -388,8 +388,6 @@ public class CampaignActivity extends AppCompatActivity {
                         campLists.add(campitem);
                         c1.setCampaignsList(campLists);
                         // now put this c1 to new collection as well as user's profile..
-                        p.setCampaign(c1);
-                        firestore.collection("users").document(auth.getUid()).set(p);
                         firestore.collection("campaigns").document(auth.getUid()).set(c1);
 
 

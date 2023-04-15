@@ -56,10 +56,12 @@
                 android:id="@+id/campaign_details"
                 layout="@layout/campaign_description"
                 android:visibility="gone" />
+
             <include
                 android:id="@+id/campaign_payment"
                 layout="@layout/campaign_payment_details"
                 android:visibility="gone" />
+
             <include
                 android:id="@+id/campaign_author"
                 layout="@layout/campaign_author"
@@ -79,11 +81,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_marginBottom="12dp"
         android:elevation="2dp"
         app:elevation="0dp"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"
         app:itemIconTint="@drawable/bnv_tab_item_foreground"
         app:itemTextColor="@drawable/bnv_tab_item_foreground"
         app:labelVisibilityMode="unlabeled"

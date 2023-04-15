@@ -50,9 +50,30 @@ public class ManageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.profileDetailsLayout.setVisibility(View.GONE);
+        binding.btnManageDetails.setVisibility(View.GONE);
+
+
         auth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firestore = FirebaseFirestore.getInstance();
+        binding.btnedit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.profileDetailsLayout.setVisibility(View.VISIBLE);
+                binding.btnManageDetails.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        binding.btnManageDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.profileDetailsLayout.setVisibility(View.GONE);
+                binding.btnManageDetails.setVisibility(View.GONE);
+            }
+        });
+
 
         progressDialog = ProgressDialog.show(requireContext(), "Loading", "Please wait...", true);
 
@@ -63,10 +84,8 @@ public class ManageFragment extends Fragment {
 
 
                     Address a = documentSnapshot.get("address", Address.class);
-                    String address = a.getVill() + "\n" + a.getCity() + "\n" + a.getDistrict() + " " + a.getState() + "\n" + a.getCountry() + "   -  " + a.getPincode();
+                    String address = a.getVill() + " " + a.getCity() + " " + a.getDistrict() + " " + a.getState() + " " + a.getCountry() + "   -  " + a.getPincode();
                     binding.edtAddress.setText(address);
-
-
                     String name = documentSnapshot.getString("name");
                     binding.tvName.setText(name);
                     String email = documentSnapshot.getString("email");

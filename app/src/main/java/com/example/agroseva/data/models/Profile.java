@@ -1,7 +1,5 @@
 package com.example.agroseva.data.models;
 
-import com.example.agroseva.data.campaign.Campaign;
-
 import java.io.Serializable;
 
 public class Profile implements Serializable {
@@ -13,7 +11,6 @@ public class Profile implements Serializable {
     String passcode;
     String profileImageUrl;
     Address address;
-    Campaign campaign;
 
     public String getPasscode() {
         return passcode;
@@ -79,14 +76,6 @@ public class Profile implements Serializable {
         this.address = address;
     }
 
-    public Campaign getCampaign() {
-        return campaign;
-    }
-
-    public void setCampaign(Campaign campaign) {
-        this.campaign = campaign;
-    }
-
     @Override
     public String toString() {
         return "Profile{" +
@@ -98,7 +87,6 @@ public class Profile implements Serializable {
                 ", passcode='" + passcode + '\'' +
                 ", profileImageUrl='" + profileImageUrl + '\'' +
                 ", address=" + address +
-                ", campaign=" + campaign +
                 '}';
     }
 

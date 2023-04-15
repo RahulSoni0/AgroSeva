@@ -13,6 +13,16 @@ public class CampaignItem implements Serializable {
     String adhar_no;
     String adhar_url;
     Contact contact;
+    String doc_id;
+
+    public String getDoc_id() {
+        return doc_id;
+    }
+
+    public void setDoc_id(String doc_id) {
+        this.doc_id = doc_id;
+    }
+
     List<DonationItems> donors;
     List<PaymentOptions> paymentOptions;
 
@@ -114,6 +124,7 @@ public class CampaignItem implements Serializable {
                 ", adhar_no='" + adhar_no + '\'' +
                 ", adhar_url='" + adhar_url + '\'' +
                 ", contact=" + contact +
+                ", doc_id='" + doc_id + '\'' +
                 ", donors=" + donors +
                 ", paymentOptions=" + paymentOptions +
                 '}';

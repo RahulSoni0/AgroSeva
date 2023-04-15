@@ -9,7 +9,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.agroseva.ui.fragments.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_exploreFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/exploreFragment"
         android:name="com.example.agroseva.ui.fragments.ExploreFragment"
-        android:label="fragment_explore"
+        android:label="Explore"
         tools:layout="@layout/fragment_explore" >
         <action
             android:id="@+id/action_exploreFragment_to_marketFragment"
@@ -27,12 +27,12 @@
     <fragment
         android:id="@+id/manageFragment"
         android:name="com.example.agroseva.ui.fragments.ManageFragment"
-        android:label="fragment_manage"
+        android:label="Manage"
         tools:layout="@layout/fragment_manage" />
     <fragment
         android:id="@+id/marketFragment"
         android:name="com.example.agroseva.ui.fragments.MarketFragment"
-        android:label="fragment_market"
+        android:label="Market"
         tools:layout="@layout/fragment_market" >
         <action
             android:id="@+id/action_marketFragment_to_manageFragment"

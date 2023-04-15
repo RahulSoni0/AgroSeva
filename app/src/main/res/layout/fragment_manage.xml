@@ -50,7 +50,7 @@
                         android:layout_width="110dp"
                         android:layout_height="110dp"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/profile_pic"
+                        android:src="@drawable/image_place_holder"
                         app:civ_border_color="@color/white"
                         app:civ_border_width="5dp" />
                 </RelativeLayout>
@@ -83,16 +83,6 @@
                         android:textStyle="bold">
 
                     </TextView>
-
-                    <!--                    <ImageView-->
-                    <!--                        android:id="@+id/editName"-->
-                    <!--                        android:layout_width="30dp"-->
-                    <!--                        android:layout_height="30dp"-->
-                    <!--                        android:layout_alignParentStart="true"-->
-                    <!--                        android:layout_alignParentTop="true"-->
-                    <!--                        android:layout_alignParentBottom="true"-->
-                    <!--                        android:layout_marginStart="4dp"-->
-                    <!--                        android:src="@drawable/edit" />-->
 
                 </LinearLayout>
 
@@ -158,33 +148,48 @@
                     android:layout_marginEnd="24dp"
                     android:background="@color/black"></View>
 
+                <TextView
+                    android:id="@+id/btnedit"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/edit"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="Edit Details"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
                 <LinearLayout
                     android:id="@+id/profileDetailsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="12dp">
 
                     <EditText
                         android:id="@+id/edtAddress"
-                        android:layout_width="332dp"
+                        android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:layout_marginTop="25dp"
+
                         android:background="@drawable/editfield"
                         android:elevation="2dp"
                         android:fontFamily="@font/poppins"
                         android:gravity="fill"
                         android:hint="Address"
                         android:inputType="text"
-                        android:maxLines="4"
-                        android:minLines="4"
                         android:paddingLeft="15dp"
                         android:textColor="@color/black"
                         android:textColorHint="#302F2F" />
 
                     <EditText
                         android:id="@+id/edtPhone"
-                        android:layout_width="332dp"
+                        android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="25dp"
                         android:background="@drawable/editfield"
@@ -199,7 +204,7 @@
 
                     <EditText
                         android:id="@+id/edtEmail"
-                        android:layout_width="332dp"
+                        android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="25dp"
                         android:background="@drawable/editfield"
@@ -211,33 +216,42 @@
                         android:textColor="@color/black"
                         android:textColorHint="#302F2F" />
 
-                    <EditText
-                        android:id="@+id/edtGender"
-                        android:layout_width="332dp"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/editfield"
-                        android:elevation="2dp"
-                        android:fontFamily="@font/poppins"
-                        android:hint="gender"
-                        android:inputType="textCapCharacters"
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="#302F2F" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/edtAge"
-                        android:layout_width="332dp"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="25dp"
-                        android:background="@drawable/editfield"
-                        android:elevation="2dp"
-                        android:fontFamily="@font/poppins"
-                        android:hint="Age"
-                        android:inputType="textCapCharacters"
-                        android:paddingLeft="15dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="#302F2F" />
+                        <EditText
+                            android:id="@+id/edtGender"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editfield"
+                            android:elevation="2dp"
+                            android:fontFamily="@font/poppins"
+                            android:hint="gender"
+                            android:inputType="textCapCharacters"
+                            android:paddingLeft="15dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="#302F2F" />
+
+                        <EditText
+                            android:id="@+id/edtAge"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/editfield"
+                            android:elevation="2dp"
+                            android:fontFamily="@font/poppins"
+                            android:hint="Age"
+                            android:inputType="textCapCharacters"
+                            android:paddingLeft="15dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="#302F2F" />
+                    </LinearLayout>
                 </LinearLayout>
 
 

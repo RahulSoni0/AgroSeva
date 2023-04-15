@@ -131,5 +131,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-config:21.3.0'
     implementation 'com.google.android.gms:play-services-auth:20.4.0'
     implementation 'com.google.firebase:firebase-database:20.1.0'
-
+    implementation 'com.karumi:dexter:6.2.3'
 }

@@ -193,7 +193,6 @@ public class OnboardingActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
                 String name = binding.PersonalFormLayoutTo.editFirstName.getEditText().getText().toString().trim() + " " + binding.PersonalFormLayoutTo.editMiddleName.getEditText().getText().toString().trim() + " " + binding.PersonalFormLayoutTo.editLastName.getEditText().getText().toString().trim();
                 String age = binding.PersonalFormLayoutTo.editAge.getEditText().getText().toString().trim();
                 String gen = "";
@@ -226,7 +225,6 @@ public class OnboardingActivity extends AppCompatActivity {
                     p.setPhone_no(phoneNo);
                     p.setProfileImageUrl(profileImageUrl);
                     p.setAddress(a);
-                    p.setCampaign(null);
                     p.setPasscode(passcode);
 
                     firebaseFirestore.collection("users").document(auth.getUid()).set(p);
@@ -235,8 +233,6 @@ public class OnboardingActivity extends AppCompatActivity {
                     Toast.makeText(OnboardingActivity.this, "Profile created successfully", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(OnboardingActivity.this, MainActivity.class);
                     startActivity(i);
-
-//                    Profile p1 = new Profile()
 
 
                 }

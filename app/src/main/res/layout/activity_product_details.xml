@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.ProductDetailsActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -30,7 +31,7 @@
                     android:layout_marginBottom="12dp"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="Campaign Details"
+                    android:text="Product Details"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -40,22 +41,20 @@
                     android:id="@+id/ivProfilePreview"
                     android:layout_width="match_parent"
                     android:layout_height="184dp"
+                    android:elevation="4dp"
                     android:src="@drawable/image_place_holder"
                     app:civ_border_color="@color/green"
                     app:civ_border_width="3dp"></ImageView>
 
                 <TextView
-                    android:layout_marginTop="8dp"
                     android:id="@+id/campaignTitle"
-                    android:gravity="center"
-                    android:background="@color/green"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
                     android:text="Campaign Title"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:padding="4dp"
                     android:textStyle="bold">
 
                 </TextView>
@@ -64,7 +63,7 @@
                     android:id="@+id/campaignDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
                     android:text="Campaign Desc"
                     android:textColor="@color/black"
@@ -73,12 +72,12 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/campaignProd"
+                    android:id="@+id/campaignAvailability"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Campaign Prod"
+                    android:text="Availability "
                     android:textColor="@color/black"
                     android:textSize="16sp">
 
@@ -88,15 +87,14 @@
                     android:id="@+id/campaignAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Campaign amount"
+                    android:text="product rate"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"></TextView>
 
                 <TextView
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -104,7 +102,7 @@
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
                     android:padding="4dp"
-                    android:text="Farmer Details"
+                    android:text="Seller Details"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold">
@@ -115,6 +113,7 @@
                     android:id="@+id/name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
                     android:text="Name"
                     android:textColor="@color/black"
@@ -142,14 +141,6 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"></TextView>
 
-                <ImageView
-                    android:id="@+id/ivAdharPreview"
-                    android:layout_width="match_parent"
-                    android:layout_height="156dp"
-                    android:src="@drawable/adhar">
-
-                </ImageView>
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -159,81 +150,43 @@
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
                     android:padding="4dp"
-                    android:text="Bank Details"
+                    android:text="Contact Details"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold">
+                    android:textStyle="bold"></TextView>
 
-                </TextView>
 
                 <TextView
-                    android:id="@+id/Holdername"
+                    android:id="@+id/phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Holder Name"
+                    android:text="Phone Number:"
                     android:textColor="@color/black"
-                    android:textSize="16sp">
-
-                </TextView>
+                    android:textSize="18sp"></TextView>
 
                 <TextView
-                    android:id="@+id/BankName"
+                    android:id="@+id/emailId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Bank Name"
-                    android:textColor="@color/black"
-                    android:textSize="16sp">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/accountNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="account no"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"></TextView>
-
-                <TextView
-                    android:id="@+id/ifsc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="ifsc"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"></TextView>
-
-                <TextView
-                    android:id="@+id/upiId"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="upiId"
+                    android:text="Email Id"
                     android:textColor="@color/black"
                     android:textSize="16sp"></TextView>
 
                 <ImageView
-                    android:id="@+id/ivQrcode"
+                    android:id="@+id/btnWhatsappChat"
                     android:layout_width="match_parent"
-                    android:layout_height="184dp"
-                    android:src="@drawable/qrcode"
-                    app:civ_border_color="@color/green"
-                    app:civ_border_width="3dp"></ImageView>
-
-                <Button
-                    android:id="@+id/btnDonate"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="Donate now">
+                    android:layout_marginTop="12dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/whtsapchat">
 
-                </Button>
+                </ImageView>
+
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/personalDetails"
-        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:icon="@drawable/resume"
         android:title="Personal Details">
 
     </item>
@@ -11,7 +11,7 @@
 
     <item
         android:id="@+id/addressForm"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/addres"
         android:title="Address" />
 
 

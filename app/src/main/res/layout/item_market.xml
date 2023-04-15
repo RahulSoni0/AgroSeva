@@ -16,38 +16,24 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/ivItemImage"
+            android:id="@+id/mivItemImage"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
+            android:layout_height="156dp"
             android:layout_margin="8dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:src="@drawable/profile_pic" />
 
         <TextView
-            android:background="@color/green"
-            android:padding="4dp"
-            android:gravity="center"
-            android:id="@+id/tvCampaignTitle"
+            android:id="@+id/mtvCampaignTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:text="Campaign Title"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/white"
-            android:textSize="20sp"></TextView>
+            android:textColor="@color/black"
+            android:textSize="18sp"></TextView>
 
         <TextView
-            android:layout_marginTop="12dp"
-            android:id="@+id/tvCampaignProd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/poppins"
-            android:maxLines="1"
-            android:text="Product desc "></TextView>
-
-        <TextView
-            android:id="@+id/tvCampaignDesc"
+            android:id="@+id/mtvCampaignDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -61,15 +47,15 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvCampaignAmount"
-                android:layout_width="wrap_content"
+                android:id="@+id/mtvCampaignAmount"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
                 android:text="Amount needed : 1000"></TextView>
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvCampaignLocation"
+            android:id="@+id/mtvCampaignLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -88,15 +74,22 @@
             android:weightSum="6">
 
             <TextView
-                android:id="@+id/tvCampaignAuthor"
-                android:layout_width="0dp"
+                android:id="@+id/mtvCampaignAuthor"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:fontFamily="@font/poppins"
                 android:text="Created By :" />
 
             <ImageView
-                android:id="@+id/btnItemShare"
+                android:id="@+id/mbtnItemWhatsapp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:src="@drawable/whatsapp" />
+
+            <ImageView
+                android:id="@+id/mbtnItemShare"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_weight="1"
