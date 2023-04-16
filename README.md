@@ -25,7 +25,7 @@ Member : Aditya Gupta
 
 ## 🚀 Features
 
-- Dedicated section for articles , books and podcasts related to mental health.
+- Home Page : Collection of Important Links , Updates on Government Schemes , Farmer WellFare schemes , best practices and articles related to farming
 - Community section consisting of various groups for people from different backgrounds
 - Focus tracker to stop procrastination and get things done.
 - Diverse collections of Lofi beats for study , sleep and relaxing mood
