@@ -13,7 +13,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="36dp"
-        android:text="Agri Seva"
+        android:text="Agro Seva"
         android:textColor="#434343"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -30,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
-        android:text="Take control over emotions  to take control of  your mental health"
+        android:text=" One Stop Farming Solution"
         android:textColor="#434343"
         android:textSize="20sp"
         android:textStyle="italic"
@@ -97,7 +97,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tvResisterDescription"
         app:layout_constraintStart_toStartOf="@+id/tvResisterDescription"
         app:layout_constraintTop_toBottomOf="@+id/tvResisterDescription"
-        app:srcCompat="@drawable/panda_meditation" />
+        app:srcCompat="@drawable/agerseva" />
 
     <TextView
         android:id="@+id/tvGetStarted"
