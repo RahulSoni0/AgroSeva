@@ -12,6 +12,10 @@ Member : Suraj Burnwal
 Member : Aditya Gupta
 <br>
 
+Website Link : 
+http://34.131.16.236/
+
+repo for website code : https://github.com/nitishkrpanchal987/agroSeva
 
 
 ## 👨🏽‍💻  Tech 
