@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="Crop Details "
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/ivProfilePreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="184dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/rice"
+                    app:civ_border_color="@color/green"
+                    app:civ_border_width="3dp"></ImageView>
+
+                <TextView
+                    android:id="@+id/cropName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Rice"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/cropDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Rice is one of the most important crops in the world, providing food for more than half of the world's population. It is a staple crop in many countries, particularly in Asia, and is known for its versatility and nutritional value. Rice is a cereal grain that grows in flooded fields, known as paddy fields, or in dry fields, depending on the variety. It is a grass species that is cultivated for its edible seeds, which are high in carbohydrates, and provide a good source of energy. Rice crops are typically grown in warm, wet conditions, with different varieties suited to different climates and soil types. The crop is harvested by cutting the stalks and threshing the grain, which can be used for a variety of culinary purposes, from steaming and boiling to milling and fermenting."
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="italic">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/cropPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Avg. price : 1800-2200 per quintal (100 kg)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Best Practices"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Traditional flooded rice cultivation: This method involves keeping the fields continuously flooded with water throughout the growing season. The fields are first plowed, leveled, and fertilized, and then flooded with water. Seedlings are then transplanted into the flooded fields."
+                    android:textColor="@color/black"
+                    android:textSize="16sp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Aerobic rice cultivation: This method involves growing rice in non-flooded, well-drained fields with less water. In this method, the fields are only partially flooded, and the water level is allowed to recede before replenishing."
+                    android:textColor="@color/black"
+                    android:textSize="16sp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/p3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="System of Rice Intensification (SRI): This method involves transplanting younger seedlings at wider spacing and using less water, but with more care and attention to soil and plant management. This method is known to increase yields and reduce water usage."
+                    android:textColor="@color/black"
+                    android:textSize="16sp"></TextView>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/p4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Direct-seeded rice cultivation: This method involves directly sowing the seeds into dry soil, followed by irrigation. This method saves water and labor costs, but requires careful management of weeds and pests."
+                    android:textColor="@color/black"
+                    android:textSize="16sp"></TextView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Video Guides"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Articles"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

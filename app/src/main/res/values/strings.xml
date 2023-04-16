@@ -14,5 +14,36 @@
         <item>Fertilizers and Pesticides</item>
         <item>Medicine and Livestock Fodder</item>
     </string-array>
+    <string-array name="state_array">
+        <item>Andhra_Pradesh</item>
+        <item>Arunachal_Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal_Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya_Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil_Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar_Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West_Bengal</item>
+    </string-array>
+
 
 </resources>

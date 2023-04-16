@@ -14,11 +14,11 @@ import com.example.agroseva.R;
 
 import java.util.ArrayList;
 
-public class homePosterAdapter extends PagerAdapter {
+public class HomePosterAdapter extends PagerAdapter {
 
     private ArrayList<String> list=new ArrayList<>();
 
-    public homePosterAdapter(ArrayList<String> list)
+    public HomePosterAdapter(ArrayList<String> list)
     {
         this.list = list;
     }

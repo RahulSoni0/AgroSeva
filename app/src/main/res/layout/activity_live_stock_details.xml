@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="16sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="Live Stock Details "
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+
+                <ImageView
+                    android:id="@+id/ivProfilePreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="184dp"
+                    android:layout_marginBottom="12dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cow"
+                    app:civ_border_color="@color/green"
+                    app:civ_border_width="3dp"></ImageView>
+
+                <TextView
+                    android:id="@+id/cropName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Cow"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/cropDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Cows are an important livestock animal in agriculture, providing milk and other products. Dairy cows are raised primarily for their milk, which is used to produce a wide range of dairy products such as cheese, butter, and yogurt. Cows are also used as draft animals, particularly in developing countries, where they help plow fields and transport goods. Additionally, cow manure is a valuable fertilizer and is used to enrich soil in many agricultural settings. As a result, cows play a significant role in food production, economic development, and sustainability."
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="italic">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/cropPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Avg. price : 50-60 per liter Milk "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Best Practices"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/p1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Providing a balanced diet of grass, hay, and other nutrients.
+Keeping the cow in a clean and comfortable environment.
+Regular checkups by a veterinarian to ensure good health and prevent diseases."
+                    android:textColor="@color/black"
+                    android:textSize="16sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/p2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="
+Keeping the cow in a clean and comfortable environment, free from extreme temperatures, drafts, and moisture.
+Providing adequate space for the cow to move around and rest comfortably.
+Regular grooming, including brushing and cleaning, to prevent the buildup of dirt and parasites.
+Regular exercise to promote good physical health and prevent obesity.
+Regular checkups by a veterinarian to ensure good health and prevent diseases.
+"
+                    android:textColor="@color/black"
+                    android:textSize="16sp">
+
+                </TextView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Video Guides"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Articles"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+                        <ImageView
+                            android:layout_width="240dp"
+                            android:layout_height="120dp"
+                            android:src="@drawable/image_place_holder" />
+
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

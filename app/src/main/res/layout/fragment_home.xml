@@ -9,7 +9,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,8 +23,8 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vpHomeBanner"
                 android:layout_width="match_parent"
-                android:layout_height="164dp"
-                android:layout_marginTop="12dp"
+                android:layout_height="156dp"
+                android:layout_marginTop="4dp"
                 android:clipToPadding="false"
                 android:elevation="10dp"
                 android:paddingLeft="30dp"
@@ -35,10 +34,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SpeakableTextPresentCheck" />
 
+
             <LinearLayout
-                android:id="@+id/StudyContainer"
+                android:id="@+id/LinkContainer"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="24dp"
                 android:orientation="vertical"
@@ -49,74 +49,106 @@
 
                 <TextView
                     android:id="@+id/tvHomeLofiStudy"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Lofi study"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="24sp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Important Links"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvStudy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="196dp"
-                    android:padding="2dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/RelaxContainer"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginStart="2dp"
-                android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/StudyContainer">
-
-                <TextView
-                    android:id="@+id/tvHomeLofiRelax"
+                    android:id="@+id/rvLinks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Lofi Relax"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvRelax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="196dp"
+                    android:layout_marginTop="12dp"
                     android:padding="2dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/SleepContainer"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_margin="4dp"
-                android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/RelaxContainer">
 
                 <TextView
                     android:id="@+id/tvHomeLofiSleep"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="Lofi Sleep"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="24sp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Latest Government initiatives"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSleep"
+                    android:id="@+id/rvInitiatives"
                     android:layout_width="wrap_content"
-                    android:layout_height="196dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:padding="2dp" />
+
+                <TextView
+                    android:id="@+id/tvHomeschehe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Farmer Wellfare Schemes"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvScheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:padding="2dp" />
+
+                <TextView
+                    android:id="@+id/tvHomeNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="News Highlights"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvNews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:padding="2dp" />
+
+                <TextView
+                    android:id="@+id/tvHomeArticles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/green"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:text="Featured Articles"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvArticles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
                     android:padding="2dp" />
             </LinearLayout>
 
