@@ -6,7 +6,7 @@ Release apk :  https://github.com/RahulSoni0/AgroSeva/blob/main/app-release.apk
 
 Team leader :- Rahul Kumar soni 
 <br>
-Member : Nitish Kumar Soni
+Member : Nitish Kumar Panchal
 <br>
 Member : Suraj Burnwal
 <br>
