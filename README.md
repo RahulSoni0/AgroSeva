@@ -1,5 +1,6 @@
 
 # AgroSeva App
+Release apk :  https://github.com/RahulSoni0/AgroSeva/blob/main/app-release.apk
 
 ### Gfg | Solve for India - Hackathon | NIT JAMSHEDPUR
 
@@ -19,12 +20,15 @@ repo for website code : https://github.com/nitishkrpanchal987/agroSeva
 
 
 ## 👨🏽‍💻  Tech 
-
+- App side
 - Implemented Firebase Auth ui for phone , email and google Authentication and Authorization.
 - Used Firebase as Backend Service ( GCP ).
 - Implemented Campaign Creation , View and Donate other Campaign
-- build Market Place for selling / Borrowing and buying Products Related to Agriculture.
+- Created Market Place for selling / Borrowing and buying Products Related to Agriculture.
 - Used Material 3 UI
+
+- Website
+- React.js , Node.js , Firebase and Local storage
 
 ## Screenshots 
 
