@@ -158,7 +158,9 @@ public class DonationActivity extends AppCompatActivity {
 
                     // now set this to curr doc it thing..
 
-                    firebaseFirestore.collection("campaigns").document(c.getCampaignsList().get(0).getDoc_id()).set(c);
+
+                    //modifive dis 1
+                    firebaseFirestore.collection("campaigns").document(c.getCampaignsList().get(0).getUid()).set(c);
 
 
                     Toast.makeText(DonationActivity.this, "Donated successfully", Toast.LENGTH_SHORT).show();

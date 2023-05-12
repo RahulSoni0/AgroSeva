@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agroseva.data.market.Product;
+import com.example.agroseva.data.market.ProductList;
 import com.example.agroseva.databinding.FragmentMarketBinding;
 import com.example.agroseva.ui.activities.CreateProductActivity;
 import com.example.agroseva.ui.adapters.MarketAdapter;
@@ -108,8 +109,15 @@ public class MarketFragment extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot document : task.getResult().getDocuments()) {
-                        Product singleProd = document.toObject(Product.class);
-                        products.add(singleProd);
+                        ProductList singleProd = document.toObject(ProductList.class);
+
+                        for (Product pp: singleProd.getProducts()
+                             ) {
+                            products.add(pp);
+
+                        }
+
+
                     }
 
 

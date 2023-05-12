@@ -5,6 +5,8 @@ import com.example.agroseva.data.campaign.Contact;
 import java.io.Serializable;
 
 public class Product implements Serializable {
+    String prod_id;
+    String uid;
     String product_name;
     String product_desc;
     String product_price;
@@ -20,11 +22,6 @@ public class Product implements Serializable {
 
     public void setCat(String cat) {
         this.cat = cat;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" + "product_name='" + product_name + '\'' + ", product_desc='" + product_desc + '\'' + ", product_price='" + product_price + '\'' + ", product_Imageurl='" + product_Imageurl + '\'' + ", product_availability='" + product_availability + '\'' + ", whatsappno='" + whatsappno + '\'' + ", contact=" + contact + ", cat='" + cat + '\'' + '}';
     }
 
 
@@ -82,6 +79,38 @@ public class Product implements Serializable {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    public String getProd_id() {
+        return prod_id;
+    }
+
+    public void setProd_id(String prod_id) {
+        this.prod_id = prod_id;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "prod_id='" + prod_id + '\'' +
+                ", uid='" + uid + '\'' +
+                ", product_name='" + product_name + '\'' +
+                ", product_desc='" + product_desc + '\'' +
+                ", product_price='" + product_price + '\'' +
+                ", product_Imageurl='" + product_Imageurl + '\'' +
+                ", product_availability='" + product_availability + '\'' +
+                ", whatsappno='" + whatsappno + '\'' +
+                ", contact=" + contact +
+                ", cat='" + cat + '\'' +
+                '}';
     }
 
     public Product() {

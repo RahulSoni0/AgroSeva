@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -25,6 +26,7 @@ import com.example.agroseva.api.network.RetrofitBuilder;
 import com.example.agroseva.api.pincodeRes.PincodeModelResItem;
 import com.example.agroseva.data.campaign.Contact;
 import com.example.agroseva.data.market.Product;
+import com.example.agroseva.data.market.ProductList;
 import com.example.agroseva.data.models.Address;
 import com.example.agroseva.databinding.ActivityCreateProductBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +34,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -40,6 +44,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -60,7 +65,7 @@ public class CreateProductActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseFirestore firebaseFirestore;
     private ProgressDialog progressDialog;
-
+    List<Product> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class CreateProductActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         storageRef = storage.getReference();
+        list = new ArrayList<>();
+        initData();
 
 
         binding.btnVerifyPincode.setEnabled(false);
@@ -199,7 +206,6 @@ public class CreateProductActivity extends AppCompatActivity {
                 // verify and submit here in market with uid from auth .get uid...
                 // and rest will be entered by user
 
-
                 String name = binding.editdnrName.getEditText().getText().toString().trim();
                 String age = binding.editdnrAge.getEditText().getText().toString().trim();
                 String gender = binding.editdnrGenger.getEditText().getText().toString().trim();
@@ -248,18 +254,44 @@ public class CreateProductActivity extends AppCompatActivity {
                     p.setProduct_price(productRate);
                     p.setWhatsappno(whatsappNumber);
                     p.setContact(cc);
-
-                    firebaseFirestore.collection("market").document(auth.getUid()).set(p);
-
+                    String cid = UUID.randomUUID().toString();
+                    //generate and add here...
+                    p.setUid(auth.getUid());
+                    p.setProd_id(cid);
+                    list.add(p);
+                    ProductList pp = new ProductList();
+                    pp.setProducts(list);
+                    Log.d("rahul", "onClick: " + pp.toString());
+                    firebaseFirestore.collection("market").document(auth.getUid()).set(pp);
 
                     Toast.makeText(CreateProductActivity.this, "Created successfully! check market", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(CreateProductActivity.this, MainActivity.class);
                     startActivity(i);
 
-
                 }
 
 
+            }
+        });
+
+
+    }
+
+    private void initData() {
+
+        // fetch all already exsisting data
+        DocumentReference docRef = firebaseFirestore.collection("market").document(auth.getUid());
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                if (documentSnapshot.exists()) {
+                    ProductList temp = documentSnapshot.toObject(ProductList.class);
+                    list.addAll(temp.getProducts());
+
+                    Toast.makeText(CreateProductActivity.this, "aya dataaaaaa" + list.toString(), Toast.LENGTH_LONG).show();
+                    // do something with the list
+                }
             }
         });
 

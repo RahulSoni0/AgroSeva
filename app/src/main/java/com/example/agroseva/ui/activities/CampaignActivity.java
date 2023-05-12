@@ -38,6 +38,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -95,7 +96,9 @@ public class CampaignActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         auth = FirebaseAuth.getInstance();
         storageRef = storage.getReference();
+        campLists = new ArrayList<>();
         initData();
+        initCamp();
 
         binding.campaignAuthor.UserCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -330,7 +333,7 @@ public class CampaignActivity extends AppCompatActivity {
                             && !binding.campaignPayment.editAcHolderName.getEditText().getText().toString().trim().equals("") && !binding.campaignPayment.editAcNo.getEditText().getText().toString().trim().equals("") && !binding.campaignPayment.editBankName.getEditText().getText().toString().trim().equals("") && !binding.campaignPayment.editIfsc.getEditText().getText().toString().trim().equals("") && !binding.campaignPayment.editupiId.getEditText().getText().toString().trim().equals("") && !campaignImage.equals("") && !adharImage.equals("") && !binding.campaignAuthor.editPhone.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthor.editGender.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthor.editName.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthor.editEmail.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthorAddress.editPassword.getEditText().getText().toString().trim().equals("") && (!binding.campaignAuthorAddress.editHouseName.getEditText().getText().toString().trim().equals("") || !binding.campaignAuthorAddress.editRoadAreaColony.getEditText().getText().toString().trim().equals("")) && !binding.campaignAuthorAddress.editPincode.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthor.editAdhar.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthorAddress.editCityName.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthorAddress.editStateName.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthorAddress.editCountryName.getEditText().getText().toString().trim().equals("") && !binding.campaignAuthorAddress.editDistrict.getEditText().getText().toString().trim().equals("") && !binding.campaignDetails.editCmpTitle.getEditText().getText().toString().trim().equals("") && !binding.campaignDetails.editCmpDescription.getEditText().getText().toString().trim().equals("") && !binding.campaignDetails.editCmpProduct.getEditText().getText().toString().trim().equals("") && !binding.campaignDetails.editAmount.getEditText().getText().toString().trim().equals("") && !binding.campaignDetails.editDeadline.getEditText().getText().toString().trim().equals("")) {
 
                         //create campaign with these data....
-                        campLists = new ArrayList<>();
+
                         String title = binding.campaignDetails.editCmpTitle.getEditText().getText().toString();
                         String description = binding.campaignDetails.editCmpDescription.getEditText().getText().toString();
                         String product = binding.campaignDetails.editCmpProduct.getEditText().getText().toString();
@@ -370,8 +373,9 @@ public class CampaignActivity extends AppCompatActivity {
                         cc.setAge(p.getAge());
                         cc.setPhone_no(p.getPhone_no());
                         cc.setGender(p.getGender());
-
-                        campitem.setDoc_id(auth.getUid());
+                        String cid = UUID.randomUUID().toString();
+                        campitem.setCamp_id(cid); //generate and add here...
+                        campitem.setUid(auth.getUid());
                         campitem.setContact(cc);
 
                         PaymentOptions payment = new PaymentOptions();
@@ -397,15 +401,29 @@ public class CampaignActivity extends AppCompatActivity {
 
                         //here set both user and campaign....
 
-
                     } else {
                         Toast.makeText(CampaignActivity.this, "please fill all the field correctly", Toast.LENGTH_LONG).show();
                         Toast.makeText(CampaignActivity.this, "please upload all the images correctly", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
+            }
+        });
 
+
+    }
+
+    private void initCamp() {
+
+        DocumentReference docRef = firestore.collection("campaigns").document(auth.getUid());
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                if (documentSnapshot.exists()) {
+                    Campaign temp = documentSnapshot.toObject(Campaign.class);
+                    campLists.addAll(temp.getCampaignsList());
+                    // do something with the list
+                }
             }
         });
 
@@ -733,7 +751,6 @@ public class CampaignActivity extends AppCompatActivity {
                     String phone = documentSnapshot.getString("phone_no");
                     String age = documentSnapshot.getString("age");
                     String passcode = documentSnapshot.getString("passcode");
-
                     String imageUrl = documentSnapshot.getString("profileImageUrl");
                     p.setName(name);
                     p.setEmail(email);
