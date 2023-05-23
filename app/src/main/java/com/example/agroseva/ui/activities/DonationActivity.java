@@ -157,9 +157,10 @@ public class DonationActivity extends AppCompatActivity {
                     currDonor.setContact(cc);
                     currDonor.setMessage(message);
                     currDonor.setReciept_url(dnrReciept);
+
+                    campLists.remove(c);
                     d.add(currDonor);
                     c.setDonors(d);
-
                     Campaign c1 = new Campaign();
                     campLists.add(c);
                     c1.setCampaignsList(campLists);
