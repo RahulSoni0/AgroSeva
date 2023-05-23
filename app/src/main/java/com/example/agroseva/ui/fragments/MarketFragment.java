@@ -40,7 +40,6 @@ public class MarketFragment extends Fragment {
     List<Product> l4;
 
 
-
     MarketAdapter a1;
     MarketAdapter a2;
     MarketAdapter a3;
@@ -111,8 +110,8 @@ public class MarketFragment extends Fragment {
                     for (DocumentSnapshot document : task.getResult().getDocuments()) {
                         ProductList singleProd = document.toObject(ProductList.class);
 
-                        for (Product pp: singleProd.getProducts()
-                             ) {
+                        for (Product pp : singleProd.getProducts()
+                        ) {
                             products.add(pp);
 
                         }
