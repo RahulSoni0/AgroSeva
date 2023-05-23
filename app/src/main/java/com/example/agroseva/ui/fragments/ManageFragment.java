@@ -13,23 +13,29 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.agroseva.data.campaign.Campaign;
+import com.example.agroseva.data.campaign.CampaignItem;
 import com.example.agroseva.data.models.Address;
 import com.example.agroseva.databinding.FragmentManageBinding;
 import com.example.agroseva.onboarding.AuthActivity;
 import com.example.agroseva.ui.activities.CampaignActivity;
+import com.example.agroseva.ui.activities.ManageActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.List;
 
 public class ManageFragment extends Fragment {
     FragmentManageBinding binding;
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
     private FirebaseUser firebaseUser;
-
+    List<CampaignItem> campLists;
     private ProgressDialog progressDialog;
 
     @Override
@@ -121,6 +127,16 @@ public class ManageFragment extends Fragment {
             }
         });
 
+
+        binding.btnManageCampaigns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(requireActivity(), ManageActivity.class);
+                startActivity(i);
+            }
+        });
+
+
         binding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +147,23 @@ public class ManageFragment extends Fragment {
                 getActivity().finish();
             }
         });
+
+    }
+    private void initCamp() {
+
+        DocumentReference docRef = firestore.collection("campaigns").document(auth.getUid());
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                if (documentSnapshot.exists()) {
+                    Campaign temp = documentSnapshot.toObject(Campaign.class);
+                    campLists.addAll(temp.getCampaignsList());
+                    // do something with the list
+                }
+            }
+        });
+
 
     }
 }

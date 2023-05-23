@@ -3,13 +3,13 @@ package com.example.agroseva.ui.activities;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.agroseva.data.campaign.Campaign;
+import com.example.agroseva.data.campaign.CampaignItem;
 import com.example.agroseva.databinding.ActivityViewCampaignBinding;
 import com.example.agroseva.ui.adapters.CampaignAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +24,7 @@ import java.util.List;
 
 public class ViewCampaignActivity extends AppCompatActivity {
 
-    List<Campaign> campaigns;
+    List<CampaignItem> campaigns;
 
     CampaignAdapter adapter;
     ActivityViewCampaignBinding binding;
@@ -55,7 +55,12 @@ public class ViewCampaignActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot document : task.getResult().getDocuments()) {
                         Campaign singleCamp = document.toObject(Campaign.class);
-                        campaigns.add(singleCamp);
+
+                        for (CampaignItem e : singleCamp.getCampaignsList()
+                        ) {
+                            campaigns.add(e);
+                        }
+
                     }
                     adapter.notifyDataSetChanged();
                     progressDialog.dismiss();

@@ -22,6 +22,7 @@ import com.example.agroseva.api.network.PincodeInterface;
 import com.example.agroseva.api.network.RetrofitBuilder;
 import com.example.agroseva.api.pincodeRes.PincodeModelResItem;
 import com.example.agroseva.data.campaign.Campaign;
+import com.example.agroseva.data.campaign.CampaignItem;
 import com.example.agroseva.data.campaign.Contact;
 import com.example.agroseva.data.campaign.DonationItems;
 import com.example.agroseva.data.models.Address;
@@ -31,6 +32,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -50,9 +53,9 @@ import retrofit2.Response;
 public class DonationActivity extends AppCompatActivity {
 
     ActivityDonationBinding binding;
-    Campaign c;
+    CampaignItem c;
     int PICK_IMAGE_REQUEST = 3000;
-
+    List<CampaignItem> campLists;
     String imageUrl = "";
     FirebaseStorage storage;
     StorageReference storageRef;
@@ -71,22 +74,24 @@ public class DonationActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         storageRef = storage.getReference();
+        campLists = new ArrayList<>();
+        initCamp();
 
 
         if (getIntent() != null) {
-            c = (Campaign) getIntent().getSerializableExtra("data");
+            c = (CampaignItem) getIntent().getSerializableExtra("data");
         }
 
         if (c != null) {
 
 
-            Glide.with(this).load(c.getCampaignsList().get(0).getPaymentOptions().get(0).getUpi_qr_url()).into(binding.ivQrcode);
+            Glide.with(this).load(c.getPaymentOptions().get(0).getUpi_qr_url()).into(binding.ivQrcode);
 
-            binding.Holdername.setText("Holder Name : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getName());
-            binding.BankName.setText("Bank Name : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getBank_name());
-            binding.accountNo.setText("Account No : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getAccount_no());
-            binding.ifsc.setText("IFSC : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getIfsc());
-            binding.upiId.setText("Upi Id : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getUpi());
+            binding.Holdername.setText("Holder Name : " + c.getPaymentOptions().get(0).getName());
+            binding.BankName.setText("Bank Name : " + c.getPaymentOptions().get(0).getBank_name());
+            binding.accountNo.setText("Account No : " + c.getPaymentOptions().get(0).getAccount_no());
+            binding.ifsc.setText("IFSC : " + c.getPaymentOptions().get(0).getIfsc());
+            binding.upiId.setText("Upi Id : " + c.getPaymentOptions().get(0).getUpi());
 
 
         }
@@ -111,7 +116,7 @@ public class DonationActivity extends AppCompatActivity {
                 // verify and upload it
                 List<DonationItems> d = new ArrayList<>();
 
-                d.addAll(c.getCampaignsList().get(0).getDonors());
+                d.addAll(c.getDonors());
                 String name = binding.editdnrName.getEditText().getText().toString().trim();
                 String age = binding.editdnrAge.getEditText().getText().toString().trim();
                 String gender = binding.editdnrGenger.getEditText().getText().toString().trim();
@@ -153,14 +158,19 @@ public class DonationActivity extends AppCompatActivity {
                     currDonor.setMessage(message);
                     currDonor.setReciept_url(dnrReciept);
                     d.add(currDonor);
+                    c.setDonors(d);
 
-                    c.getCampaignsList().get(0).setDonors(d);
+                    Campaign c1 = new Campaign();
+                    campLists.add(c);
+                    c1.setCampaignsList(campLists);
 
                     // now set this to curr doc it thing..
 
 
                     //modifive dis 1
-                    firebaseFirestore.collection("campaigns").document(c.getCampaignsList().get(0).getUid()).set(c);
+                    firebaseFirestore.collection("campaigns").document(c.getUid()).set(c1);
+
+                    // here it will be a list..
 
 
                     Toast.makeText(DonationActivity.this, "Donated successfully", Toast.LENGTH_SHORT).show();
@@ -334,5 +344,21 @@ public class DonationActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void initCamp() {
+
+        DocumentReference docRef = firebaseFirestore.collection("campaigns").document(auth.getUid());
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                if (documentSnapshot.exists()) {
+                    Campaign temp = documentSnapshot.toObject(Campaign.class);
+                    campLists.addAll(temp.getCampaignsList());
+                    // do something with the list
+                }
+            }
+        });
     }
 }

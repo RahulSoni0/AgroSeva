@@ -8,13 +8,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.agroseva.data.campaign.Campaign;
+import com.example.agroseva.data.campaign.CampaignItem;
 import com.example.agroseva.databinding.ActivityCampaignDetailsBinding;
 
 public class CampaignDetailsActivity extends AppCompatActivity {
 
     ActivityCampaignDetailsBinding binding;
-    Campaign c;
+    CampaignItem c;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,30 +24,30 @@ public class CampaignDetailsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         if (getIntent() != null) {
-            c = (Campaign) getIntent().getSerializableExtra("data");
+            c = (CampaignItem) getIntent().getSerializableExtra("data");
         }
 
 
         if (c != null) {
-            binding.campaignTitle.setText(c.getCampaignsList().get(0).getCampaign_title());
-            binding.campaignDesc.setText("Description : " + c.getCampaignsList().get(0).getCampaign_description());
-            binding.campaignProd.setText("Product Description : " + c.getCampaignsList().get(0).getProduct_description());
-            binding.campaignAmount.setText("Fund Needed : ₹ " + c.getCampaignsList().get(0).getAmount());
-            binding.name.setText("Name : " + c.getCampaignsList().get(0).getContact().getName());
-            binding.age.setText("Age : " + c.getCampaignsList().get(0).getContact().getName());
-            String address = c.getCampaignsList().get(0).getContact().getAddress().getVill() + " " + c.getCampaignsList().get(0).getContact().getAddress().getCity() + " " + c.getCampaignsList().get(0).getContact().getAddress().getDistrict() + " " + c.getCampaignsList().get(0).getContact().getAddress().getState() + " " + c.getCampaignsList().get(0).getContact().getAddress().getCountry() + "   -  " + c.getCampaignsList().get(0).getContact().getAddress().getPincode();
+            binding.campaignTitle.setText(c.getCampaign_title());
+            binding.campaignDesc.setText("Description : " + c.getCampaign_description());
+            binding.campaignProd.setText("Product Description : " + c.getProduct_description());
+            binding.campaignAmount.setText("Fund Needed : ₹ " + c.getAmount());
+            binding.name.setText("Name : " + c.getContact().getName());
+            binding.age.setText("Age : " + c.getContact().getName());
+            String address = c.getContact().getAddress().getVill() + " " + c.getContact().getAddress().getCity() + " " + c.getContact().getAddress().getDistrict() + " " + c.getContact().getAddress().getState() + " " + c.getContact().getAddress().getPincode();
 
 
             binding.address.setText("Address : " + address);
-            Glide.with(this).load(c.getCampaignsList().get(0).getCampaign_image_url()).into(binding.ivProfilePreview);
-            Glide.with(this).load(c.getCampaignsList().get(0).getPaymentOptions().get(0).getUpi_qr_url()).into(binding.ivQrcode);
-            Glide.with(this).load(c.getCampaignsList().get(0).getAdhar_url()).into(binding.ivAdharPreview);
+            Glide.with(this).load(c.getCampaign_image_url()).into(binding.ivProfilePreview);
+            Glide.with(this).load(c.getPaymentOptions().get(0).getUpi_qr_url()).into(binding.ivQrcode);
+            Glide.with(this).load(c.getAdhar_url()).into(binding.ivAdharPreview);
 
-            binding.Holdername.setText("Holder Name : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getName());
-            binding.BankName.setText("Bank Name : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getBank_name());
-            binding.accountNo.setText("Account No : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getAccount_no());
-            binding.ifsc.setText("IFSC : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getIfsc());
-            binding.upiId.setText("Upi Id : " + c.getCampaignsList().get(0).getPaymentOptions().get(0).getUpi());
+            binding.Holdername.setText("Holder Name : " + c.getPaymentOptions().get(0).getName());
+            binding.BankName.setText("Bank Name : " + c.getPaymentOptions().get(0).getBank_name());
+            binding.accountNo.setText("Account No : " + c.getPaymentOptions().get(0).getAccount_no());
+            binding.ifsc.setText("IFSC : " + c.getPaymentOptions().get(0).getIfsc());
+            binding.upiId.setText("Upi Id : " + c.getPaymentOptions().get(0).getUpi());
 
 
         }

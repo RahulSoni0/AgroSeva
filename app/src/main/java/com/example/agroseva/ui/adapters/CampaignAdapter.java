@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.agroseva.R;
-import com.example.agroseva.data.campaign.Campaign;
+import com.example.agroseva.data.campaign.CampaignItem;
 import com.example.agroseva.ui.activities.CampaignDetailsActivity;
 
 import java.util.List;
@@ -21,10 +21,10 @@ import java.util.List;
 public class CampaignAdapter extends RecyclerView.Adapter<CampaignAdapter.MyViewHolder> {
 
 
-    List<Campaign> dataList;
+    List<CampaignItem> dataList;
     Context context;
 
-    public CampaignAdapter(List<Campaign> dataList, Context context) {
+    public CampaignAdapter(List<CampaignItem> dataList, Context context) {
         this.dataList = dataList;
         this.context = context;
     }
@@ -39,21 +39,21 @@ public class CampaignAdapter extends RecyclerView.Adapter<CampaignAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        Campaign c = dataList.get(position);
+        CampaignItem c = dataList.get(position);
 
-        holder.title.setText(c.getCampaignsList().get(0).getCampaign_title());
-        holder.desc.setText("Product : " + c.getCampaignsList().get(0).getCampaign_description());
-        holder.prod.setText("Description : " + c.getCampaignsList().get(0).getProduct_description());
-        holder.amount.setText(" Fund needed  ₹  :" + c.getCampaignsList().get(0).getAmount());
-        String add = c.getCampaignsList().get(0).getContact().getAddress().getVill() + " " +
-                c.getCampaignsList().get(0).getContact().getAddress().getCity() + " " +
-                c.getCampaignsList().get(0).getContact().getAddress().getDistrict() + " " +
-                c.getCampaignsList().get(0).getContact().getAddress().getState() + " - " +
-                c.getCampaignsList().get(0).getContact().getAddress().getPincode() + " ";
+        holder.title.setText(c.getCampaign_title());
+        holder.desc.setText("Product : " + c.getCampaign_description());
+        holder.prod.setText("Description : " + c.getProduct_description());
+        holder.amount.setText(" Fund needed  ₹  :" + c.getAmount());
+        String add = c.getContact().getAddress().getVill() + " " +
+                c.getContact().getAddress().getCity() + " " +
+                c.getContact().getAddress().getDistrict() + " " +
+                c.getContact().getAddress().getState() + " - " +
+                c.getContact().getAddress().getPincode() + " ";
         holder.address.setText("Address : " + add);
-        holder.author.setText("by : " + c.getCampaignsList().get(0).getContact().getName());
+        holder.author.setText("by : " + c.getContact().getName());
 
-        Glide.with(context).load(c.getCampaignsList().get(0).getCampaign_image_url()).into(holder.ivbanner);
+        Glide.with(context).load(c.getCampaign_image_url()).into(holder.ivbanner);
 
         holder.ivbanner.setOnClickListener(new View.OnClickListener() {
             @Override

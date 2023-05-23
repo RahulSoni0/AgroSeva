@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agroseva.data.campaign.Campaign;
+import com.example.agroseva.data.campaign.CampaignItem;
 import com.example.agroseva.databinding.ActivityThanksDonationBinding;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -34,7 +35,7 @@ import java.util.List;
 
 public class ThanksDonationActivity extends AppCompatActivity {
     ActivityThanksDonationBinding binding;
-    Campaign c;
+    CampaignItem c;
     Bitmap bitmap;
 
     @Override
@@ -55,7 +56,7 @@ public class ThanksDonationActivity extends AppCompatActivity {
         }).check();
 
         if (getIntent() != null) {
-            c = (Campaign) getIntent().getSerializableExtra("data");
+            c = (CampaignItem) getIntent().getSerializableExtra("data");
         }
         Toast.makeText(this, c.toString(), Toast.LENGTH_SHORT).show();
         long currentTimestamp = System.currentTimeMillis();
@@ -63,25 +64,25 @@ public class ThanksDonationActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
         String currentDate = dateFormat2.format(new Date(currentTimestamp));
         String currentDateTime = dateFormat.format(new Date(currentTimestamp));
-        binding.Campaignname.setText("Campaign Name: " + c.getCampaignsList().get(0).getCampaign_title());
-        binding.recieptName.setText("This certificate is presented to " + c.getCampaignsList().get(0).getDonors().get(c.getCampaignsList().get(0).getDonors().size() - 1).getContact().getName() + " in recognition and sincere appreciation of your generous contribution to " +
+        binding.Campaignname.setText("Campaign Name: " + c.getCampaign_title());
+        binding.recieptName.setText("This certificate is presented to " + c.getDonors().get(c.getDonors().size() - 1).getContact().getName() + " in recognition and sincere appreciation of your generous contribution to " +
 
-                c.getCampaignsList().get(0).getContact().getName() +
+                c.getContact().getName() +
 
 
-                ". Your donation of :  ₹ " + c.getCampaignsList().get(0).getDonors().get(c.getCampaignsList().get(0).getDonors().size() - 1).getAmount() + " on " + currentDate + " has greatly supported our efforts to help farmers to contribute to the society");
+                ". Your donation of :  ₹ " + c.getDonors().get(c.getDonors().size() - 1).getAmount() + " on " + currentDate + " has greatly supported our efforts to help farmers to contribute to the society");
 
-        String add = c.getCampaignsList().get(0).getContact().getAddress().getVill() + " " + c.getCampaignsList().get(0).getContact().getAddress().getCity() + " " + c.getCampaignsList().get(0).getContact().getAddress().getDistrict() + " " + c.getCampaignsList().get(0).getContact().getAddress().getState() + " - " + c.getCampaignsList().get(0).getContact().getAddress().getPincode() + " ";
+        String add = c.getContact().getAddress().getVill() + " " + c.getContact().getAddress().getCity() + " " + c.getContact().getAddress().getDistrict() + " " + c.getContact().getAddress().getState() + " - " + c.getContact().getAddress().getPincode() + " ";
         binding.recieptDate.setText("Date :  " + currentDateTime + " ");
         binding.recieptNumber.setText("Receipt no :  " + currentTimestamp);
-        binding.name.setText("Name : " + c.getCampaignsList().get(0).getContact().getName());
-        binding.age.setText("Age : " + c.getCampaignsList().get(0).getContact().getAge());
-        binding.emailId.setText("Email Id : " + c.getCampaignsList().get(0).getContact().getEmail());
-        binding.phoneNumber.setText("Phone no : " + c.getCampaignsList().get(0).getContact().getPhone_no());
+        binding.name.setText("Name : " + c.getContact().getName());
+        binding.age.setText("Age : " + c.getContact().getAge());
+        binding.emailId.setText("Email Id : " + c.getContact().getEmail());
+        binding.phoneNumber.setText("Phone no : " + c.getContact().getPhone_no());
         binding.address.setText("Address : " + add);
 
 
-        String msg = "Dear " + c.getCampaignsList().get(0).getDonors().get(c.getCampaignsList().get(0).getDonors().size() - 1).getContact().getName() + ", " + "On behalf of " + c.getCampaignsList().get(0).getContact().getName() + ", we would like to express our sincere gratitude for your generous donation towards our agriculture farm. Your contribution is greatly appreciated and will go a long way in supporting our mission to cultivate healthy and sustainable produce for our community. We have also included your Transaction ID number for your records. Thank you again for your support, and we look forward to continuing our partnership to create a more sustainable and healthy future." + "\n Sincerely,";
+        String msg = "Dear " + c.getDonors().get(c.getDonors().size() - 1).getContact().getName() + ", " + "On behalf of " + c.getContact().getName() + ", we would like to express our sincere gratitude for your generous donation towards our agriculture farm. Your contribution is greatly appreciated and will go a long way in supporting our mission to cultivate healthy and sustainable produce for our community. We have also included your Transaction ID number for your records. Thank you again for your support, and we look forward to continuing our partnership to create a more sustainable and healthy future." + "\n Sincerely,";
 
         binding.recieptDesc.setText(msg);
         binding.btnSubmit.setOnClickListener(new View.OnClickListener() {
