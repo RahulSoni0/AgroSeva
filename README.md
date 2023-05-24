@@ -14,7 +14,7 @@ Member : Aditya Gupta
 <br>
 
 Website Link : 
-http://34.131.16.236/
+(http://34.131.166.163/)
 
 repo for website code : https://github.com/nitishkrpanchal987/agroSeva
 
